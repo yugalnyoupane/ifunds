@@ -106,13 +106,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Program Files\MySQL\MySQL Connector C++ 8.2\include\jdbc;C:\Program Files\MySQL\MySQL Server 8.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Downloaded files\Miscallaneous\jsoncpp\jsoncpp-master\include;D:\Downloaded files\Miscallaneous\curl-8.5.0_6-win64-mingw\curl-8.5.0_6-win64-mingw\include;C:\Program Files\MySQL\MySQL Connector C++ 8.2\include\jdbc;C:\Program Files\MySQL\MySQL Server 8.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Program Files\MySQL\MySQL Connector C++ 8.2\lib64\vs14;C:\Program Files\MySQL\MySQL Server 8.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>search-ms:displayname=Search%20Results%20in%20jsoncpp-master&amp;crumb=location:D%3A%5CDownloaded%20files%5CMiscallaneous%5Cjsoncpp%5Cjsoncpp-master\lib_json;D:\Downloaded files\Miscallaneous\curl-8.5.0_6-win64-mingw\curl-8.5.0_6-win64-mingw\lib;C:\Program Files\MySQL\MySQL Connector C++ 8.2\lib64\vs14;C:\Program Files\MySQL\MySQL Server 8.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>mysqlcppconn.lib;libmysql.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <EntryPointSymbol>main</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -123,19 +124,41 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Program Files\MySQL\MySQL Connector C++ 8.2\include\jdbc;C:\Program Files\MySQL\MySQL Server 8.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Downloaded files\Miscallaneous\jsoncpp\jsoncpp-master\include;D:\Downloaded files\Miscallaneous\curl-8.5.0_6-win64-mingw\curl-8.5.0_6-win64-mingw\include;C:\Program Files\MySQL\MySQL Connector C++ 8.2\include\jdbc;C:\Program Files\MySQL\MySQL Server 8.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Program Files\MySQL\MySQL Connector C++ 8.2\lib64\vs14;C:\Program Files\MySQL\MySQL Server 8.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>search-ms:displayname=Search%20Results%20in%20jsoncpp-master&amp;crumb=location:D%3A%5CDownloaded%20files%5CMiscallaneous%5Cjsoncpp%5Cjsoncpp-master\lib_json;D:\Downloaded files\Miscallaneous\curl-8.5.0_6-win64-mingw\curl-8.5.0_6-win64-mingw\lib;C:\Program Files\MySQL\MySQL Connector C++ 8.2\lib64\vs14;C:\Program Files\MySQL\MySQL Server 8.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>mysqlcppconn.lib;libmysql.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <EntryPointSymbol>main</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="sqlconnect.cpp" />
+    <ClCompile Include="deleteAccount.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="user.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DeleteAccount.h" />
+    <ClInclude Include="MyForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="user.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MyForm.resx">
+      <DependentUpon>MyForm.h</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
