@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{416c63c9-7b24-41b2-b058-048109a2bf2e}</ProjectGuid>
-    <RootNamespace>ifunds</RootNamespace>
+    <ProjectGuid>{331f9be8-243d-4d78-a5b0-1ebb6adc8efb}</ProjectGuid>
+    <RootNamespace>currency</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -44,7 +44,6 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
-    <CLRSupport>true</CLRSupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -52,7 +51,6 @@
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <CLRSupport>true</CLRSupport>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -72,6 +70,12 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LibraryPath>C:\Program Files\cURL\curl-8.5.0_6-win64-mingw\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LibraryPath>C:\Program Files\cURL\curl-8.5.0_6-win64-mingw\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -106,14 +110,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Downloaded files\Miscallaneous\jsoncpp\jsoncpp-master\include;D:\Downloaded files\Miscallaneous\curl-8.5.0_6-win64-mingw\curl-8.5.0_6-win64-mingw\include;C:\Program Files\MySQL\MySQL Connector C++ 8.2\include\jdbc;C:\Program Files\MySQL\MySQL Server 8.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Downloaded files\Miscallaneous\jsoncpp\jsoncpp-master\include;C:\Program Files\cURL\curl-8.5.0_6-win64-mingw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>search-ms:displayname=Search%20Results%20in%20jsoncpp-master&amp;crumb=location:D%3A%5CDownloaded%20files%5CMiscallaneous%5Cjsoncpp%5Cjsoncpp-master\lib_json;D:\Downloaded files\Miscallaneous\curl-8.5.0_6-win64-mingw\curl-8.5.0_6-win64-mingw\lib;C:\Program Files\MySQL\MySQL Connector C++ 8.2\lib64\vs14;C:\Program Files\MySQL\MySQL Server 8.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>mysqlcppconn.lib;libmysql.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <EntryPointSymbol>main</EntryPointSymbol>
+      <AdditionalLibraryDirectories>D:\Downloaded files\Miscallaneous\jsoncpp\jsoncpp-master\src\lib_json;D:\Downloaded files\Miscallaneous\curl-8.5.0_6-win64-mingw\curl-8.5.0_6-win64-mingw\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -124,33 +127,19 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Downloaded files\Miscallaneous\jsoncpp\jsoncpp-master\include;D:\Downloaded files\Miscallaneous\curl-8.5.0_6-win64-mingw\curl-8.5.0_6-win64-mingw\include;C:\Program Files\MySQL\MySQL Connector C++ 8.2\include\jdbc;C:\Program Files\MySQL\MySQL Server 8.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Downloaded files\Miscallaneous\jsoncpp\jsoncpp-master\include;C:\Program Files\cURL\curl-8.5.0_6-win64-mingw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>search-ms:displayname=Search%20Results%20in%20jsoncpp-master&amp;crumb=location:D%3A%5CDownloaded%20files%5CMiscallaneous%5Cjsoncpp%5Cjsoncpp-master\lib_json;D:\Downloaded files\Miscallaneous\curl-8.5.0_6-win64-mingw\curl-8.5.0_6-win64-mingw\lib;C:\Program Files\MySQL\MySQL Connector C++ 8.2\lib64\vs14;C:\Program Files\MySQL\MySQL Server 8.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>mysqlcppconn.lib;libmysql.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <EntryPointSymbol>main</EntryPointSymbol>
+      <AdditionalLibraryDirectories>D:\Downloaded files\Miscallaneous\jsoncpp\jsoncpp-master\src\lib_json;D:\Downloaded files\Miscallaneous\curl-8.5.0_6-win64-mingw\curl-8.5.0_6-win64-mingw\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="deleteAccount.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="user.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="DeleteAccount.h" />
-    <ClInclude Include="user.h" />
+    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
