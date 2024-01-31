@@ -59,6 +59,8 @@ int DeleteAccount::confirmDeletion(){
             stmt = con->createStatement();
             stmt->execute("DELETE FROM info WHERE id =" + to_string(wallet_id));
 
+            con->commit();
+
             delete res;
             delete stmt;
             delete con;

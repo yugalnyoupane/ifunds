@@ -139,6 +139,7 @@
   <ItemGroup>
     <ClCompile Include="deleteAccount.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Transaction.cpp" />
     <ClCompile Include="user.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DeleteAccount.h" />
+    <ClInclude Include="Transaction.h" />
     <ClInclude Include="user.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
