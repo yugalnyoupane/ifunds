@@ -5,7 +5,33 @@
 #include "Registration.h"
 
 int main() {
+    int a, b;
+    dash:
+    cout << "------------------------------------------------------------------------------------------------\n\n";
+    cout << "                                      WELCOME TO iFunds!!!\n\n";
+    cout << "------------------------------------------------------------------------------------------------\n\n\n";
+    cout << " enter 1 to reister your account\n";
+    cout << " enter 2 to log in to your account\n";
+    cout << " enter 3 to exit the application\n";
+    cout << "------------------------------------------------------------------------------------------------\n\n\n";
 
+        cin >> a;
+
+        switch (a) {
+        case 1: {
+            Registration registers;
+            registers.confirm_registration();
+        }
+
+        // case 2:
+
+        case 3:
+            system("cls");
+            exit(0);
+        }
+
+
+        
 
     //goto dash;
     // after dashboard
@@ -28,7 +54,7 @@ int main() {
         cout << " enter 8 to exit \n";
         cout << "------------------------------------------------------------------------------------------------\n\n\n";
 
-        int b;
+        
         cout << "enter your choice:\t";
         cin >> b;
         cout << "*********************************************************************************************************************\n\n";
@@ -55,7 +81,7 @@ int main() {
             delete_account.confirmDeletion();
         }
             
-        /*case 7:
+        case 7:
             char ch;
             cout << "------------------------------------------------------------------------------------------------\n\n";
             cout << "                                 LOGOUT\n\n";
@@ -84,7 +110,7 @@ int main() {
             {
                 goto mainmenu;
             }
-            //ADD:*/
+            //ADD:
 
         }
 	
