@@ -39,9 +39,20 @@ next:
     cin >> email;
     cout << "enter your password:\t";
     char ch = _getch();
-    while (ch != 13) {//character 13 is enter
-        password.push_back(ch);
-        cout << '*';
+    while (ch != 13)
+    {//character 13 is enter
+        if (ch == 8)
+        {
+            if (password.size() > 0) {
+                password.erase(password.size() - 1, 1);
+                cout << "\b \b";
+            }
+        }
+        else {
+            password.push_back(ch);
+            cout << '*';
+
+        }
         ch = _getch();
     }
     cout << "\n";
