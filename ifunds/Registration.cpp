@@ -88,12 +88,12 @@ int Registration::confirm_registration()
 
         sql::mysql::MySQL_Driver* driver;
         sql::Connection* con;
-
         driver = sql::mysql::get_mysql_driver_instance();
-        con = driver->connect("tcp://:3306", "sqluser", "password");
+        con = driver->connect("tcp://127.0.0.1:3306", "root", "quoriumesh");
+        con->setSchema("ifunds");
         stmt = con->createStatement();
-        stmt->execute("CREATE DATABASE IF NOT EXISTS IFUNDs"); // CREATES DATABASE
-        con->setSchema("IFUNDs"); // CALLS DATABASE
+       //stmt->execute("CREATE DATABASE IF NOT EXISTS IFUNDs"); // CREATES DATABASE
+        //con->setSchema("IFUNDs"); // CALLS DATABASE
 
         stmt->execute("CREATE TABLE IF NOT EXISTS info( id int auto_increment, name text(255), age int not null, email text(255), password text(255), mpin int not null, unique KEY (ID),PRIMARY KEY (name(255)) )"); // CREATES TABLE
 

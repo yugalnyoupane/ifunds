@@ -139,6 +139,7 @@
   <ItemGroup>
     <ClCompile Include="deleteAccount.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Registration.cpp" />
     <ClCompile Include="Transaction.cpp" />
     <ClCompile Include="user.cpp" />
   </ItemGroup>
@@ -151,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DeleteAccount.h" />
+    <ClInclude Include="Registration.h" />
     <ClInclude Include="Transaction.h" />
     <ClInclude Include="user.h" />
   </ItemGroup>

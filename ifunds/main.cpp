@@ -6,7 +6,7 @@
 
 int main() {
     int a, b;
-    dash:
+dash:
     cout << "------------------------------------------------------------------------------------------------\n\n";
     cout << "                                      WELCOME TO iFunds!!!\n\n";
     cout << "------------------------------------------------------------------------------------------------\n\n\n";
@@ -15,23 +15,23 @@ int main() {
     cout << " enter 3 to exit the application\n";
     cout << "------------------------------------------------------------------------------------------------\n\n\n";
 
-        cin >> a;
+    cin >> a;
 
-        switch (a) {
-        case 1: {
-            Registration registers;
-            registers.confirm_registration();
-        }
+    switch (a) {
+    case 1: {
+        Registration registers;
+        registers.confirm_registration();
+    }
 
-        // case 2:
+          // case 2:
 
-        case 3:
-            system("cls");
-            exit(0);
-        }
+    case 3:
+        system("cls");
+        exit(0);
+    }
 
 
-        
+
 
     //goto dash;
     // after dashboard
@@ -40,28 +40,28 @@ int main() {
     system("cls");
 
 
-     mainmenu:
-        cout << "------------------------------------------------------------------------------------------------\n\n";
-        cout << "                                      WELCOME TO MAIN MENU!!!\n\n";
-        cout << "------------------------------------------------------------------------------------------------\n\n\n";
-        cout << " enter 1 to add funds\n";
-        cout << " enter 2 for transaction history\n";
-        cout << " enter 3 to initiate transaction\n";
-        cout << " enter 4 for account management\n";
-        cout << " enter 5 for currency convertern\n";
-        cout << " enter 6 for deleting your account\n";
-        cout << " enter 7 to log out\n";
-        cout << " enter 8 to exit \n";
-        cout << "------------------------------------------------------------------------------------------------\n\n\n";
+mainmenu:
+    cout << "------------------------------------------------------------------------------------------------\n\n";
+    cout << "                                      WELCOME TO MAIN MENU!!!\n\n";
+    cout << "------------------------------------------------------------------------------------------------\n\n\n";
+    cout << " enter 1 to add funds\n";
+    cout << " enter 2 for transaction history\n";
+    cout << " enter 3 to initiate transaction\n";
+    cout << " enter 4 for account management\n";
+    cout << " enter 5 for currency convertern\n";
+    cout << " enter 6 for deleting your account\n";
+    cout << " enter 7 to log out\n";
+    cout << " enter 8 to exit \n";
+    cout << "------------------------------------------------------------------------------------------------\n\n\n";
 
-        
-        cout << "enter your choice:\t";
-        cin >> b;
-        cout << "*********************************************************************************************************************\n\n";
 
-        system("cls");
-        switch (b)
-        {
+    cout << "enter your choice:\t";
+    cin >> b;
+    cout << "*********************************************************************************************************************\n\n";
+
+    system("cls");
+    switch (b)
+    {
         /*case 1:
 
 
@@ -71,48 +71,49 @@ int main() {
             //goto ADD;
         //case 2:
         */
-        case 3: {
-            Transaction make_transaction;
+    case 3: {
+        Transaction make_transaction;
 
-            make_transaction.initiateTransaction();
+        make_transaction.initiateTransaction();
+    }
+    case 6: {
+        DeleteAccount delete_account;
+        delete_account.confirmDeletion();
+    }
+
+    case 7:
+        char ch;
+        cout << "------------------------------------------------------------------------------------------------\n\n";
+        cout << "                                 LOGOUT\n\n";
+        cout << "------------------------------------------------------------------------------------------------\n\n";
+        cout << "are yoou sure to logout??\t press 'y' for yes \n";
+        cin >> ch;
+        if (ch == 'y' && 'y')
+        {
+            goto dash;
         }
-        case 6: {
-            DeleteAccount delete_account;
-            delete_account.confirmDeletion();
+        else
+        {
+            goto mainmenu;
+
+
+    case 8:
+
+        cout << "sure to exit:\t press 'y' for yes \n";
+        cin >> ch;
+        if (ch == 'y' && 'y')
+        {
+            system("cls");
+            exit(0);
         }
-            
-        case 7:
-            char ch;
-            cout << "------------------------------------------------------------------------------------------------\n\n";
-            cout << "                                 LOGOUT\n\n";
-            cout << "------------------------------------------------------------------------------------------------\n\n";
-            cout << "are yoou sure to logout??\t press 'y' for yes \n";
-            cin >> ch;
-            if (ch == 'y' && 'y')
-            {
-                goto dash;
-            }
-            else
-            {
-                goto mainmenu;
-            
-
-        case 8:
-
-            cout << "sure to exit:\t press 'y' for yes \n";
-            cin >> ch;
-            if (ch == 'y' && 'y')
-            {
-                system("cls");
-                exit(0);
-            }
-            else
-            {
-                goto mainmenu;
-            }
-            //ADD:
+        else
+        {
+            goto mainmenu;
+        }
+        //ADD:
 
         }
-	
-	return 0;
+
+        return 0;
+    }
 }
