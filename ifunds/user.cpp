@@ -25,12 +25,14 @@ int User::getWallet_id() {
 	return wallet_id;
 }
 
-void User::setUsername(string username) {
-	this->username = username;
+void User::setUsername() {
+	cout << "Enter username";
+	cin >> username;
 }
 
-void User::setPassword(string password) {
-	this->password = password;
+void User::setPassword() {
+	cout << "Enter password";
+	cin>>password;
 }
 
 void User::setWallet_id(int wallet_id) {

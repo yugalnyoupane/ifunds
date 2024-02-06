@@ -13,7 +13,6 @@
 
 using namespace std;
 using namespace std::this_thread;
-using namespace std;
 using namespace std::chrono;
 sql::Statement* stmt;
 sql::ResultSet* res;
@@ -99,130 +98,29 @@ int Registration::confirm_registration()
 
         sql::mysql::MySQL_Driver* driver;
         sql::Connection* con;
+
         driver = sql::mysql::get_mysql_driver_instance();
         con = driver->connect("tcp://127.0.0.1:3306", "root", "quoriumesh");
-        con->setSchema("ifunds");
         stmt = con->createStatement();
-       //stmt->execute("CREATE DATABASE IF NOT EXISTS IFUNDs"); // CREATES DATABASE
-        //con->setSchema("IFUNDs"); // CALLS DATABASE
+        stmt->execute("CREATE DATABASE IF NOT EXISTS IFUNDs"); // CREATES DATABASE
+        con->setSchema("ifunds"); // CALLS DATABASE
 
         stmt->execute("CREATE TABLE IF NOT EXISTS info( id int auto_increment, name text(255), age int not null, email text(255), password text(255), mpin int not null, unique KEY (ID),PRIMARY KEY (name(255)) )"); // CREATES TABLE
 
-        //dashboard
-        int a; //for choice FOR DASHBOARD
-        int b; // for choice for main menu
-
-    dash:
-        system("cls");
-        cout << "------------------------------------------------------------------------------------------------\n\n";
-        cout << "                                      WELCOME TO IFUNDS!!!\n\n";
-        cout << "------------------------------------------------------------------------------------------------\n\n";
-        cout << "-------------------------------------------*DASHBOARD*------------------------------------------\n\n\n";
-        cout << " enter 1 for registration\n";
-        cout << " enter 2 for login\n";
-        cout << " enter 3 for forgot password\n";
-        cout << "------------------------------------------------------------------------------------------------\n\n\n";
-
-        cout << "enter your choice:\t";
-        cin >> a;
-        cout << "*********************************************************************************************************************\n\n";
-       sleep_for(seconds(1));
-        system("cls");
-        switch (a)
-        {
-        case 1:
 
 
-            cout << "------------------------------------------------------------------------------------------------\n\n";
-            cout << "                                  WELCOME TO REGISTRATION\n\n";
-            cout << "------------------------------------------------------------------------------------------------\n\n";
-            goto regis;
-        case 2:
-
-        default:
-            cout << "choose from the above options:\n";
-            goto dash;
-        }
 
 
-        //registration platform
-    regis:
 
         Registration r;
         r.get_data();  //gets data from user
         cout << "registered sucessufully:\n";
         r.get_user_id();
-        cout << "\n returning to dashboard.........";
-
-        sleep_for(seconds(3));//  add delay for nanoseconds, system_clock, seconds
-
-        //goto dash;
-        // after dashboard
-    //faceauthentication:
-        // after face authentication: 
-        system("cls");
 
 
-    /* mainmenu:
-        cout << "------------------------------------------------------------------------------------------------\n\n";
-        cout << "                                      WELCOME TO MAIN MENU!!!\n\n";
-        cout << "------------------------------------------------------------------------------------------------\n\n\n";
-        cout << " enter 1 to add funds\n";
-        cout << " enter 2 for transaction history\n";
-        cout << " enter 3 to initiate transaction\n";
-        cout << " enter 4 for account management\n";
-        cout << " enter 5 for currency convertern\n";
-        cout << " enter 6 to log out\n";
-        cout << " enter 7 to exit \n";
-        cout << "------------------------------------------------------------------------------------------------\n\n\n";
-
-        cout << "enter your choice:\t";
-        cin >> b;
-        cout << "*********************************************************************************************************************\n\n";
-
-        system("cls");
-        switch (b)
-        {
-        case 1:
-
-
-            cout << "------------------------------------------------------------------------------------------------\n\n";
-            cout << "                                 WELCOME TO ADD FUNDS\n\n";
-            cout << "------------------------------------------------------------------------------------------------\n\n";
-            //goto ADD;
-        case 2:
-        case 6:
-            char ch;
-            cout << "------------------------------------------------------------------------------------------------\n\n";
-            cout << "                                 LOGOUT\n\n";
-            cout << "------------------------------------------------------------------------------------------------\n\n";
-            cout << "are yoou sure to logout??\t press 'y' for yes \n";
-            cin >> ch;
-            if (ch == 'y' && 'y')
-            {
-                goto dash;
-            }
-            else
-            {
-                goto mainmenu;
-            }
-
-        case 7:
-
-            cout << "sure to exit:\t press 'y' for yes \n";
-            cin >> ch;
-            if (ch == 'y' && 'y')
-            {
-                system("cls");
-                exit(0);
-            }
-            else
-            {
-                goto mainmenu;
-            }
-            //ADD:
-        }*/
-
+        delete res;
+        delete stmt;
+        delete con;
     }
     catch (sql::SQLException& e)
     {

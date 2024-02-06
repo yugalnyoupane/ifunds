@@ -15,8 +15,8 @@ public:
 	string getUsername();
 	string gatPassword();
 	int getWallet_id();
-	void setUsername(string username);
-	void setPassword(string password);
+	void setUsername();
+	void setPassword();
 	void setWallet_id(int wallet_id);
 	};
 

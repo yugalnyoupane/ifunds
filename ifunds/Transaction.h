@@ -11,10 +11,11 @@
         Transaction();
 
         void setRecieverUsername();
+        int saveTransactionLog();
         void setRecieverWallet_id();
         void setTransactionAmount();
         string getRecieverUsername();
-        int getRecieverWallet_id();
+       // int getRecieverWallet_id();
         //double getTransactionAmount();
 
         void initiateTransaction();

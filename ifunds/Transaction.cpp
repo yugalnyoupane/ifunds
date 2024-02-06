@@ -29,20 +29,56 @@ void Transaction::setRecieverWallet_id() {
 string Transaction::getRecieverUsername() {
     return recieverUsername;
 }
-int Transaction::getRecieverWallet_id() {
+/*int Transaction::getRecieverWallet_id() {
     return recieverWallet_id;
-}
+}*/
 
 void Transaction::setTransactionAmount() {
     cout << "Enter the transaction amount: ";
     cin >> transactionAmount;
 }
 
+int Transaction::saveTransactionLog() {
+    try {
+        sql::mysql::MySQL_Driver* driver;
+        sql::Connection* con;
+
+        driver = sql::mysql::get_mysql_driver_instance();
+        con = driver->connect("tcp://127.0.0.1:3306", "root", "quoriumesh");
+        con->setSchema("ifunds");
+
+        sql::Statement* stmt;
+        sql::ResultSet* res;
+        wallet_id = 5;
+        // Select data
+        string ctransactionAmount = to_string(transactionAmount);
+        stmt = con->createStatement();
+        res = stmt->executeQuery("INSERT INTO  TransactionLog(amount, sender , reciever) VALUES("+ ctransactionAmount + ", '"+ username +"', '"+ recieverUsername +"')");
+
+            con->commit();
+
+            cout << "-----------Trenasction saved sucessfully----------";
+
+            delete res;
+            delete stmt;
+            delete con;
+
+
+    }
+    catch (sql::SQLException& e) {
+        cout << "Error making transaction because of the following reasons:" << endl;
+        cerr << "SQL Error: " << e.what() << endl;
+        cerr << "SQL State: " << e.getSQLState() << endl;
+        return 1;
+    }
+}
+
+
 
 void Transaction::initiateTransaction() {
     cout << "Enter the reciver details:"<<endl;
-   setRecieverWallet_id();
-   setRecieverUsername();
+    setRecieverWallet_id();
+    setRecieverUsername();
 
 
 
@@ -65,21 +101,29 @@ void Transaction::initiateTransaction() {
         {
             if (recieverUsername == res->getString("username")) {
                 setTransactionAmount();
+
+                cout<< "To confirm transaction enter your username:"<<endl;
+                setUsername();
+
                 
                 stmt = con->createStatement();
-                res = stmt->executeQuery("SELECT * FROM info WHERE id =1");
+                res = stmt->executeQuery("SELECT * FROM info WHERE id = 5");
 
                 while (res->next()) {
                     if (transactionAmount <= res->getDouble("balance")) {
                         stmt = con->createStatement();
                          stmt->executeUpdate("UPDATE info SET balance = balance -" + to_string(transactionAmount)
-                            + "WHERE  id =1");
+                            + "WHERE  id = 5");
 
                         stmt = con->createStatement();                        
                             stmt->executeUpdate("UPDATE info SET balance = balance +" + to_string(transactionAmount)
                                 + "WHERE  id =" + to_string(recieverWallet_id));
 
+                            saveTransactionLog();
+
                         cout << "\n\t\t\t---------Transaction Complete---------";
+
+                        saveTransactionLog();
 
                     }
                     else {
