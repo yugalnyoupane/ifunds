@@ -137,7 +137,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Users\ASUS\source\repos\ifunds\ifunds\account.cpp" />
     <ClCompile Include="deleteAccount.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="user.cpp" />
@@ -150,7 +149,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Users\ASUS\source\repos\ifunds\ifunds\account.h" />
     <ClInclude Include="DeleteAccount.h" />
     <ClInclude Include="user.h" />
   </ItemGroup>
