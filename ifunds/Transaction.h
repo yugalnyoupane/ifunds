@@ -18,7 +18,7 @@
        // int getRecieverWallet_id();
         //double getTransactionAmount();
 
-        void initiateTransaction();
+        int initiateTransaction();
         
 
 };

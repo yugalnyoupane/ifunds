@@ -37,7 +37,6 @@ void Transaction::setTransactionAmount() {
     cout << "Enter the transaction amount: ";
     cin >> transactionAmount;
 }
-
 int Transaction::saveTransactionLog() {
     try {
         sql::mysql::MySQL_Driver* driver;
@@ -48,34 +47,33 @@ int Transaction::saveTransactionLog() {
         con->setSchema("ifunds");
 
         sql::Statement* stmt;
-        sql::ResultSet* res;
         wallet_id = 5;
-        // Select data
+        // Insert data
         string ctransactionAmount = to_string(transactionAmount);
         stmt = con->createStatement();
-        res = stmt->executeQuery("INSERT INTO  TransactionLog(amount, sender , reciever) VALUES("+ ctransactionAmount + ", '"+ username +"', '"+ recieverUsername +"')");
+        stmt->executeUpdate("INSERT INTO TransactionLog(amount, sender, reciever) VALUES (" + ctransactionAmount + ", '" + username + "', '" + recieverUsername + "')");
 
-            con->commit();
+        con->commit();
 
-            cout << "-----------Trenasction saved sucessfully----------";
+        cout << "-----------Transaction saved successfully----------" << endl;
 
-            delete res;
-            delete stmt;
-            delete con;
-
+        delete stmt;
+        delete con;
 
     }
     catch (sql::SQLException& e) {
-        cout << "Error making transaction because of the following reasons:" << endl;
+        cout << "Error saving transaction log:" << endl;
         cerr << "SQL Error: " << e.what() << endl;
         cerr << "SQL State: " << e.getSQLState() << endl;
         return 1;
     }
+    return 0;
 }
 
 
 
-void Transaction::initiateTransaction() {
+
+int Transaction::initiateTransaction() {
     cout << "Enter the reciver details:"<<endl;
     setRecieverWallet_id();
     setRecieverUsername();
@@ -119,8 +117,6 @@ void Transaction::initiateTransaction() {
                             stmt->executeUpdate("UPDATE info SET balance = balance +" + to_string(transactionAmount)
                                 + "WHERE  id =" + to_string(recieverWallet_id));
 
-                            saveTransactionLog();
-
                         cout << "\n\t\t\t---------Transaction Complete---------";
 
                         saveTransactionLog();
@@ -145,5 +141,7 @@ void Transaction::initiateTransaction() {
         cout << "Error making transaction because of the following reasons:" << endl;
         cerr << "SQL Error: " << e.what() << endl;
         cerr << "SQL State: " << e.getSQLState() << endl;
+        return 1;
     }
+    return 0;
 }

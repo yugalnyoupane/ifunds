@@ -174,6 +174,7 @@ int account::confirmdeposit()
         cerr << "SQL Error: " << e.what() << endl;
         cerr << "SQL State: " << e.getSQLState() << endl;
     }
+    return 0;
 }
 
 void account::withdraw()
@@ -242,4 +243,5 @@ int account::confirm_withdraw()
         cerr << "SQL Error: " << e.what() << endl;
         cerr << "SQL State: " << e.getSQLState() << endl;
     }
+    return 0;
 }

@@ -3,6 +3,7 @@
 #include"DeleteAccount.h"
 #include "account.h"
 #include "Registration.h"
+#include "Transaction.h"
 #include <chrono>
 #include <thread>
 
@@ -104,6 +105,7 @@ forgot:
 
      //MAIN MENU AFTER LOGIN and face authentication ( ACCOUNT)
     account acc;        // account class object
+    Transaction initiate_transaction;
     DeleteAccount delete_account;    // object of deleteaccount class
 mainmenu:
     cout << "------------------------------------------------------------------------------------------------\n\n";
@@ -188,6 +190,7 @@ history:      // transaction history
     goto mainmenu;
 
 TRANSACTION:      // for transaction of money
+    initiate_transaction.initiateTransaction();
     cout << "\nreturning to mainmenu................";
     sleep_for(seconds(1));
     system("cls");
@@ -250,14 +253,6 @@ WITHDRAW:      //witthdraw
     sleep_for(seconds(1));
     system("cls");
     goto mainmenu;
-
-
-
-
-
-
-
-
 
     return 0;
 }
