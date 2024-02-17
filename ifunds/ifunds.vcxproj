@@ -122,17 +122,17 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>STATIC_CONCPP;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Downloaded files\Miscallaneous\jsoncpp\jsoncpp-master\include;D:\Downloaded files\Miscallaneous\curl-8.5.0_6-win64-mingw\curl-8.5.0_6-win64-mingw\include;C:\Program Files\MySQL\MySQL Connector C++ 8.2\include\jdbc;C:\Program Files\MySQL\MySQL Server 8.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\DELL\Desktop\Programming\mysql-connector-c++-8.3.0-winx64\include\jdbc;D:\Downloaded files\Miscallaneous\jsoncpp\jsoncpp-master\include;D:\Downloaded files\Miscallaneous\curl-8.5.0_6-win64-mingw\curl-8.5.0_6-win64-mingw\include;C:\Program Files\MySQL\MySQL Connector C++ 8.2\include\jdbc;C:\Program Files\MySQL\MySQL Server 8.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>search-ms:displayname=Search%20Results%20in%20jsoncpp-master&amp;crumb=location:D%3A%5CDownloaded%20files%5CMiscallaneous%5Cjsoncpp%5Cjsoncpp-master\lib_json;D:\Downloaded files\Miscallaneous\curl-8.5.0_6-win64-mingw\curl-8.5.0_6-win64-mingw\lib;C:\Program Files\MySQL\MySQL Connector C++ 8.2\lib64\vs14;C:\Program Files\MySQL\MySQL Server 8.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>mysqlcppconn.lib;libmysql.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\DELL\Desktop\Programming\mysql-connector-c++-8.3.0-winx64\lib64\vs14;search-ms:displayname=Search%20Results%20in%20jsoncpp-master&amp;crumb=location:D%3A%5CDownloaded%20files%5CMiscallaneous%5Cjsoncpp%5Cjsoncpp-master\lib_json;D:\Downloaded files\Miscallaneous\curl-8.5.0_6-win64-mingw\curl-8.5.0_6-win64-mingw\lib;C:\Program Files\MySQL\MySQL Connector C++ 8.2\lib64\vs14;C:\Program Files\MySQL\MySQL Server 8.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libmysql.lib;mysqlcppconn-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <EntryPointSymbol>main</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
@@ -141,6 +141,7 @@
     <ClCompile Include="deleteAccount.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Registration.cpp" />
+    <ClCompile Include="FaceAutentication.cpp" />
     <ClCompile Include="Transaction.cpp" />
     <ClCompile Include="user.cpp" />
   </ItemGroup>
